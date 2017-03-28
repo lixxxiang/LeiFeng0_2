@@ -19,7 +19,7 @@
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="add_key" />
+            android:value="KXH3qaZChNG8Hpavql9hLghxOFAgFmCN" />
 
         <activity android:name=".view.activity.MainActivity"
             android:theme="@android:style/Theme.NoTitleBar">

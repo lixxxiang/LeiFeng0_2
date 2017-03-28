@@ -5,6 +5,7 @@
     android:background="@color/bg_gray"
     tools:context="com.cgwx.yyfwptz.lixiang.leifeng0_2.view.activity.MainActivity">
 
+
     <RadioGroup
         android:id="@+id/rg_tab_bar"
         android:layout_width="match_parent"
@@ -80,7 +81,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <!--android:layout_below="@id/ly_top_bar"-->
 
 
 

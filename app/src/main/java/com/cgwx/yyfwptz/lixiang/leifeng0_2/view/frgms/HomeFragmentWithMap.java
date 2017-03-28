@@ -13,6 +13,9 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.MapView;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.R;
 
+import static com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter.homeFragmentNormal;
+import static com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter.homeFragmentWithMap;
+
 
 /**
  * Created by Jay on 2015/8/28 0028.
@@ -23,7 +26,6 @@ public class HomeFragmentWithMap extends Fragment {
     private View view;
     private MapView mapView = null;
     private Button changeView;
-    private HomeFragmentNormal homeFragmentNormal;
     private FragmentManager fragmentManager;
     public HomeFragmentWithMap() {}
 
@@ -38,8 +40,14 @@ public class HomeFragmentWithMap extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fTransaction = fragmentManager.beginTransaction();
-                homeFragmentNormal = new HomeFragmentNormal();
-                fTransaction.replace(R.id.ly_content, homeFragmentNormal);
+                if (homeFragmentWithMap != null)
+                    fTransaction.hide(homeFragmentWithMap);
+
+                if(homeFragmentNormal == null){
+                    homeFragmentNormal = new HomeFragmentNormal();
+                    fTransaction.replace(R.id.ly_content, homeFragmentNormal);
+                } else
+                    fTransaction.show(homeFragmentNormal);
                 fTransaction.commit();
             }
         });
@@ -63,4 +71,6 @@ public class HomeFragmentWithMap extends Fragment {
         super.onPause();
         mapView.onPause();
     }
+
+
 }
