@@ -35,4 +35,5 @@ public abstract class BasePresenter <T extends BaseViewInterface, M extends Base
     }
     protected abstract M getModel();
 
+
 }

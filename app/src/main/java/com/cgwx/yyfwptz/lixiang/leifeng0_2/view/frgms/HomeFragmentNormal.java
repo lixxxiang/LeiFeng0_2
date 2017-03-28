@@ -1,19 +1,14 @@
 package com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.R;
-import com.cgwx.yyfwptz.lixiang.leifeng0_2.models.modelImpl.HomeFragmentNormalModelImpl;
-import com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.HomeFragmentNormalPresenter;
+import com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.HomeFragment.HomeFragmentNormalPresenter;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.utils.Constants;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.BaseViewInterface;
 
@@ -56,7 +51,7 @@ public class HomeFragmentNormal extends BaseFragment<HomeFragmentNormalPresenter
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.home_fragment1,container,false);
         systemWebView = (SystemWebView) view.findViewById(R.id.cordovaWebView);
-        fpresenter.getURLrequest(Constants.homeFragmentNormal);
+        fpresenter.getURLRequest(Constants.homeFragmentNormal);
         systemWebView.loadUrl(URL);
         cordovaWebView = new CordovaWebViewImpl(new SystemWebViewEngine(systemWebView));
         configXmlParser = new ConfigXmlParser();

@@ -12,6 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.R;
+import com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.DetectFragment.DetectFragmentNormalPresenter;
+import com.cgwx.yyfwptz.lixiang.leifeng0_2.utils.Constants;
+import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.BaseViewInterface;
 
 import org.apache.cordova.ConfigXmlParser;
 import org.apache.cordova.CordovaInterface;
@@ -27,7 +30,7 @@ import java.util.concurrent.Executors;
 /**
  * Created by Jay on 2015/8/28 0028.
  */
-public class DetectFragmentNormal extends Fragment implements CordovaInterface {
+public class DetectFragmentNormal extends BaseFragment<DetectFragmentNormalPresenter, DetectFragmentNormal> implements CordovaInterface, BaseViewInterface {
 
     private CordovaWebView cordovaWebView;
     private SystemWebView systemWebView;
@@ -54,7 +57,7 @@ public class DetectFragmentNormal extends Fragment implements CordovaInterface {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.home_fragment1,container,false);
         systemWebView = (SystemWebView) view.findViewById(R.id.cordovaWebView);
-        URL = "file:///android_asset/www/home_fragment1.html";
+        fpresenter.getURLRequest(Constants.detectFragmentNormal);
         systemWebView.loadUrl(URL);
         cordovaWebView = new CordovaWebViewImpl(new SystemWebViewEngine(systemWebView));
         configXmlParser = new ConfigXmlParser();
@@ -65,6 +68,7 @@ public class DetectFragmentNormal extends Fragment implements CordovaInterface {
         changeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 FragmentTransaction fTransaction = fragmentManager.beginTransaction();
                 homeFragmentWithMap = new HomeFragmentWithMap();
                 fTransaction.replace(R.id.ly_content, homeFragmentWithMap);
@@ -122,4 +126,12 @@ public class DetectFragmentNormal extends Fragment implements CordovaInterface {
         return false;
     }
 
+    @Override
+    protected DetectFragmentNormalPresenter getPresenter() {
+        return new DetectFragmentNormalPresenter();
+    }
+
+    public void getURL(String URLresponse) {
+        URL = URLresponse;
+    }
 }
