@@ -69,16 +69,6 @@ public class HomeFragmentNormal extends BaseFragment<HomeFragmentNormalPresenter
             @Override
             public void onClick(View v) {
                 fpresenter.changeFragment();
-//                fragmentManager = MainActivity.mainActivity.getFragmentManager();
-//                FragmentTransaction fTransaction = fragmentManager.beginTransaction();
-//                if (homeFragmentNormal != null)
-//                    fTransaction.hide(homeFragmentNormal);
-//                if (homeFragmentWithMap == null){
-//                    homeFragmentWithMap = new HomeFragmentWithMap();
-//                    fTransaction.add(R.id.ly_content, homeFragmentWithMap);
-//                } else
-//                    fTransaction.show(homeFragmentWithMap);
-//                fTransaction.commit();
             }
         });
         return view;

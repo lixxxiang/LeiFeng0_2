@@ -75,42 +75,39 @@ public class HomeFragmentWithMap extends BaseFragment<HomeFragmentWithMapPresent
             }
         }
 
-        mCurrentMode = MyLocationConfiguration.LocationMode.FOLLOWING;
-        mBaiduMap.setMyLocationConfigeration(new MyLocationConfiguration(
-                        mCurrentMode, true, mCurrentMarker));
-//        requestLocButton = (Button) view.findViewById(R.id.button1);
-//        mCurrentMode = MyLocationConfiguration.LocationMode.NORMAL;
-//        requestLocButton.setText("普通");
-//        View.OnClickListener btnClickListener = new View.OnClickListener() {
-//            public void onClick(View v) {
-//                switch (mCurrentMode) {
-//                    case NORMAL:
-//                        requestLocButton.setText("跟随");
-//                        mCurrentMode = MyLocationConfiguration.LocationMode.FOLLOWING;
-//                        mBaiduMap
-//                                .setMyLocationConfigeration(new MyLocationConfiguration(
-//                                        mCurrentMode, true, mCurrentMarker));
-//                        break;
-//                    case COMPASS:
-//                        requestLocButton.setText("普通");
-//                        mCurrentMode = MyLocationConfiguration.LocationMode.NORMAL;
-//                        mBaiduMap
-//                                .setMyLocationConfigeration(new MyLocationConfiguration(
-//                                        mCurrentMode, true, mCurrentMarker));
-//                        break;
-//                    case FOLLOWING:
-//                        requestLocButton.setText("罗盘");
-//                        mCurrentMode = MyLocationConfiguration.LocationMode.COMPASS;
-//                        mBaiduMap
-//                                .setMyLocationConfigeration(new MyLocationConfiguration(
-//                                        mCurrentMode, true, mCurrentMarker));
-//                        break;
-//                    default:
-//                        break;
-//                }
-//            }
-//        };
-//        requestLocButton.setOnClickListener(btnClickListener);
+        requestLocButton = (Button) view.findViewById(R.id.button1);
+        mCurrentMode = MyLocationConfiguration.LocationMode.NORMAL;
+        requestLocButton.setText("普通");
+        View.OnClickListener btnClickListener = new View.OnClickListener() {
+            public void onClick(View v) {
+                switch (mCurrentMode) {
+                    case NORMAL:
+                        requestLocButton.setText("跟随");
+                        mCurrentMode = MyLocationConfiguration.LocationMode.FOLLOWING;
+                        mBaiduMap
+                                .setMyLocationConfigeration(new MyLocationConfiguration(
+                                        mCurrentMode, true, mCurrentMarker));
+                        break;
+                    case COMPASS:
+                        requestLocButton.setText("普通");
+                        mCurrentMode = MyLocationConfiguration.LocationMode.NORMAL;
+                        mBaiduMap
+                                .setMyLocationConfigeration(new MyLocationConfiguration(
+                                        mCurrentMode, true, mCurrentMarker));
+                        break;
+                    case FOLLOWING:
+                        requestLocButton.setText("罗盘");
+                        mCurrentMode = MyLocationConfiguration.LocationMode.COMPASS;
+                        mBaiduMap
+                                .setMyLocationConfigeration(new MyLocationConfiguration(
+                                        mCurrentMode, true, mCurrentMarker));
+                        break;
+                    default:
+                        break;
+                }
+            }
+        };
+        requestLocButton.setOnClickListener(btnClickListener);
 
 
         mMapView = (MapView) view.findViewById(R.id.bmapView);
