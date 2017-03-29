@@ -2,7 +2,6 @@ package com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.view.View;
 import android.widget.Toast;
 
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.R;
@@ -12,6 +11,7 @@ import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.activity.MainActivity;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms.DetectFragmentNormal;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms.HomeFragmentNormal;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms.HomeFragmentWithMap;
+import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms.HomeFragmentWithMapbak;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms.MoreFragment;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms.PrivateFragment;
 
@@ -25,7 +25,9 @@ public class MainActivityPresenter extends BasePresenter<MainActivity, MainActiv
     private PrivateFragment privateFragment;
     private MoreFragment moreFragment;
     public static HomeFragmentNormal homeFragmentNormal;
+    public static HomeFragmentWithMapbak homeFragmentWithMapbak;
     public static HomeFragmentWithMap homeFragmentWithMap;
+
     private FragmentManager fragmentManager;
     private FragmentTransaction fTransaction;
 
@@ -43,6 +45,12 @@ public class MainActivityPresenter extends BasePresenter<MainActivity, MainActiv
         fTransaction = fragmentManager.beginTransaction();
         hideAllFragment(fTransaction);
 
+//        if (homeFragmentWithMapbak == null ) {
+//            homeFragmentWithMapbak = new HomeFragmentWithMapbak();
+//            fTransaction.add(R.id.ly_content, homeFragmentWithMapbak);
+//        } else {
+//            fTransaction.show(homeFragmentNormal);
+//        }
         if (homeFragmentWithMap == null ) {
             homeFragmentWithMap = new HomeFragmentWithMap();
             fTransaction.add(R.id.ly_content, homeFragmentWithMap);

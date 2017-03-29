@@ -39,7 +39,7 @@ public class DetectFragmentWithMap extends Fragment implements CordovaInterface 
     private String content;
     private String URL;
     private Button changeView;
-    private HomeFragmentWithMap homeFragmentWithMap;
+    private HomeFragmentWithMapbak homeFragmentWithMapbak;
     private FragmentManager fragmentManager;
 
     public DetectFragmentWithMap() {
@@ -66,8 +66,8 @@ public class DetectFragmentWithMap extends Fragment implements CordovaInterface 
             @Override
             public void onClick(View v) {
                 FragmentTransaction fTransaction = fragmentManager.beginTransaction();
-                homeFragmentWithMap = new HomeFragmentWithMap();
-                fTransaction.replace(R.id.ly_content, homeFragmentWithMap);
+                homeFragmentWithMapbak = new HomeFragmentWithMapbak();
+                fTransaction.replace(R.id.ly_content, homeFragmentWithMapbak);
                 fTransaction.commit();
             }
         });

@@ -5,7 +5,6 @@ package com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.DetectFragment;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.models.modelImpl.DetectFragmentNormalModelImpl;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.models.modelInterface.OnSendStringListener;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.BasePresenter;
-import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.BaseViewInterface;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms.DetectFragmentNormal;
 
 /**
@@ -27,5 +26,9 @@ public class DetectFragmentNormalPresenter extends BasePresenter<DetectFragmentN
                 getView().getURL(string);
             }
         });
+    }
+
+    public void changeFragment() {
+
     }
 }

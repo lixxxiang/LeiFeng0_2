@@ -11,7 +11,7 @@ import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.activity.MainActivity;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms.HomeFragmentNormal;
 
 import static com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter.homeFragmentNormal;
-import static com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter.homeFragmentWithMap;
+import static com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter.homeFragmentWithMapbak;
 
 /**
  * Created by yyfwptz on 2017/3/27.
@@ -31,8 +31,8 @@ public class DetectFragmentWithMapPresenter extends BasePresenter<HomeFragmentNo
     public void changeFragment() {
         fragmentManager = MainActivity.mainActivity.getFragmentManager();
         FragmentTransaction fTransaction = fragmentManager.beginTransaction();
-        if (homeFragmentWithMap != null)
-            fTransaction.hide(homeFragmentWithMap);
+        if (homeFragmentWithMapbak != null)
+            fTransaction.hide(homeFragmentWithMapbak);
         if(homeFragmentNormal == null){
             homeFragmentNormal = new HomeFragmentNormal();
             fTransaction.replace(R.id.ly_content, homeFragmentNormal);

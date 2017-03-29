@@ -1,5 +1,6 @@
 package com.cgwx.yyfwptz.lixiang.leifeng0_2.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter;
@@ -35,6 +36,8 @@ public class MainActivity extends BaseActivity<MainActivityPresenter, MainActivi
             @Override
             public void onClick(View v) {
 //                presenter.performOnClick();//test
+                Intent intent = new Intent(MainActivity.this, LocationDemo.class);
+                MainActivity.this.startActivity(intent);
             }
         });
 

@@ -1,6 +1,8 @@
 package com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms;
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import com.cgwx.yyfwptz.lixiang.leifeng0_2.R;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.HomeFragment.HomeFragmentNormalPresenter;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.utils.Constants;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.BaseViewInterface;
+import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.activity.MainActivity;
 
 import org.apache.cordova.ConfigXmlParser;
 import org.apache.cordova.CordovaInterface;
@@ -21,6 +24,10 @@ import org.apache.cordova.engine.SystemWebView;
 import org.apache.cordova.engine.SystemWebViewEngine;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import static com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter.homeFragmentNormal;
+import static com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter.homeFragmentWithMap;
+import static com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter.homeFragmentWithMapbak;
 
 /**
  * Created by Jay on 2015/8/28 0028.
@@ -37,7 +44,7 @@ public class HomeFragmentNormal extends BaseFragment<HomeFragmentNormalPresenter
     private String content;
     private String URL;
     private Button changeView;
-
+    private FragmentManager fragmentManager;
 
     public HomeFragmentNormal() {
 
@@ -62,6 +69,16 @@ public class HomeFragmentNormal extends BaseFragment<HomeFragmentNormalPresenter
             @Override
             public void onClick(View v) {
                 fpresenter.changeFragment();
+//                fragmentManager = MainActivity.mainActivity.getFragmentManager();
+//                FragmentTransaction fTransaction = fragmentManager.beginTransaction();
+//                if (homeFragmentNormal != null)
+//                    fTransaction.hide(homeFragmentNormal);
+//                if (homeFragmentWithMap == null){
+//                    homeFragmentWithMap = new HomeFragmentWithMap();
+//                    fTransaction.add(R.id.ly_content, homeFragmentWithMap);
+//                } else
+//                    fTransaction.show(homeFragmentWithMap);
+//                fTransaction.commit();
             }
         });
         return view;

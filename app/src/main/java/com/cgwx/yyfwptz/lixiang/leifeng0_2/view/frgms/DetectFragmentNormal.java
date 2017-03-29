@@ -1,7 +1,6 @@
 package com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -42,7 +41,7 @@ public class DetectFragmentNormal extends BaseFragment<DetectFragmentNormalPrese
     private String content;
     private String URL;
     private Button changeView;
-    private HomeFragmentWithMap homeFragmentWithMap;
+    private HomeFragmentWithMapbak homeFragmentWithMapbak;
     private FragmentManager fragmentManager;
 
     public DetectFragmentNormal() {
@@ -68,10 +67,10 @@ public class DetectFragmentNormal extends BaseFragment<DetectFragmentNormalPrese
         changeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                fpresenter.changeFragment();
                 FragmentTransaction fTransaction = fragmentManager.beginTransaction();
-                homeFragmentWithMap = new HomeFragmentWithMap();
-                fTransaction.replace(R.id.ly_content, homeFragmentWithMap);
+                homeFragmentWithMapbak = new HomeFragmentWithMapbak();
+                fTransaction.replace(R.id.ly_content, homeFragmentWithMapbak);
                 fTransaction.commit();
             }
         });
