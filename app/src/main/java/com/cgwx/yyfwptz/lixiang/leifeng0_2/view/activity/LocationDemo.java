@@ -34,8 +34,8 @@ public class LocationDemo extends Activity {
     private MyLocationConfiguration.LocationMode mCurrentMode;
     BitmapDescriptor mCurrentMarker;
 
-    MapView mMapView;
-    BaiduMap mBaiduMap;
+    MapView mapView;
+    BaiduMap baiduMap;
 
     // UI相关
     Button requestLocButton;
@@ -66,21 +66,21 @@ public class LocationDemo extends Activity {
                     case NORMAL:
                         requestLocButton.setText("跟随");
                         mCurrentMode = MyLocationConfiguration.LocationMode.FOLLOWING;
-                        mBaiduMap
+                        baiduMap
                                 .setMyLocationConfigeration(new MyLocationConfiguration(
                                         mCurrentMode, true, mCurrentMarker));
                         break;
                     case COMPASS:
                         requestLocButton.setText("普通");
                         mCurrentMode = MyLocationConfiguration.LocationMode.NORMAL;
-                        mBaiduMap
+                        baiduMap
                                 .setMyLocationConfigeration(new MyLocationConfiguration(
                                         mCurrentMode, true, mCurrentMarker));
                         break;
                     case FOLLOWING:
                         requestLocButton.setText("罗盘");
                         mCurrentMode = MyLocationConfiguration.LocationMode.COMPASS;
-                        mBaiduMap
+                        baiduMap
                                 .setMyLocationConfigeration(new MyLocationConfiguration(
                                         mCurrentMode, true, mCurrentMarker));
                         break;
@@ -93,10 +93,10 @@ public class LocationDemo extends Activity {
 
 
         // 地图初始化
-        mMapView = (MapView) findViewById(R.id.bmapView);
-        mBaiduMap = mMapView.getMap();
+        mapView = (MapView) findViewById(R.id.bmapView);
+        baiduMap = mapView.getMap();
         // 开启定位图层
-        mBaiduMap.setMyLocationEnabled(true);
+        baiduMap.setMyLocationEnabled(true);
         // 定位初始化
         mLocClient = new LocationClient(this);
         mLocClient.registerLocationListener(myListener);
@@ -127,7 +127,7 @@ public class LocationDemo extends Activity {
         @Override
         public void onReceiveLocation(BDLocation location) {
             // map view 销毁后不在处理新接收的位置
-            if (location == null || mMapView == null) {
+            if (location == null || mapView == null) {
                 return;
             }
             MyLocationData locData = new MyLocationData.Builder()
@@ -136,14 +136,14 @@ public class LocationDemo extends Activity {
                     .direction(100).latitude(location.getLatitude())
                     .longitude(location.getLongitude()).build();
             Log.e("location: ", String.valueOf(location.getLatitude()) + String.valueOf(location.getLongitude()));
-            mBaiduMap.setMyLocationData(locData);
+            baiduMap.setMyLocationData(locData);
             if (isFirstLoc) {
                 isFirstLoc = false;
                 LatLng ll = new LatLng(location.getLatitude(),
                         location.getLongitude());
                 MapStatus.Builder builder = new MapStatus.Builder();
                 builder.target(ll).zoom(18.0f);
-                mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+                baiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
             }
         }
 
@@ -153,13 +153,13 @@ public class LocationDemo extends Activity {
 
     @Override
     protected void onPause() {
-        mMapView.onPause();
+        mapView.onPause();
         super.onPause();
     }
 
     @Override
     protected void onResume() {
-        mMapView.onResume();
+        mapView.onResume();
         super.onResume();
     }
 
@@ -168,9 +168,9 @@ public class LocationDemo extends Activity {
         // 退出时销毁定位
         mLocClient.stop();
         // 关闭定位图层
-        mBaiduMap.setMyLocationEnabled(false);
-        mMapView.onDestroy();
-        mMapView = null;
+        baiduMap.setMyLocationEnabled(false);
+        mapView.onDestroy();
+        mapView = null;
         super.onDestroy();
     }
 

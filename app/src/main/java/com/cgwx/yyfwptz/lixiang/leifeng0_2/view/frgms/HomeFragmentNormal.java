@@ -58,7 +58,12 @@ public class HomeFragmentNormal extends BaseFragment<HomeFragmentNormalPresenter
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.home_fragment1,container,false);
         systemWebView = (SystemWebView) view.findViewById(R.id.cordovaWebView);
+
+        /**
+         * to presenter
+         */
         fpresenter.getURLRequest(Constants.homeFragmentNormal);
+
         systemWebView.loadUrl(URL);
         cordovaWebView = new CordovaWebViewImpl(new SystemWebViewEngine(systemWebView));
         configXmlParser = new ConfigXmlParser();
@@ -68,6 +73,9 @@ public class HomeFragmentNormal extends BaseFragment<HomeFragmentNormalPresenter
         changeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /**
+                 * to presenter
+                 */
                 fpresenter.changeFragment();
             }
         });
