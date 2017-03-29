@@ -76,7 +76,7 @@ public class HomeFragmentWithMap extends BaseFragment<HomeFragmentWithMapPresent
         }
 
         requestLocButton = (Button) view.findViewById(R.id.button1);
-        mCurrentMode = MyLocationConfiguration.LocationMode.NORMAL;
+        mCurrentMode = MyLocationConfiguration.LocationMode.COMPASS;
         requestLocButton.setText("普通");
         View.OnClickListener btnClickListener = new View.OnClickListener() {
             public void onClick(View v) {
