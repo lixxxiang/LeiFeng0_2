@@ -2,8 +2,10 @@ package com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms;
 
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +34,7 @@ public class HomeFragmentWithMap extends BaseFragment<HomeFragmentWithMapPresent
     private LocationClient mLocClient;
     public static Button requestLocButton;
     public static BitmapDescriptor bitmapDescriptor;
+    private int iconNums;
 
 
     public HomeFragmentWithMap() {}
@@ -49,7 +52,10 @@ public class HomeFragmentWithMap extends BaseFragment<HomeFragmentWithMapPresent
          * to presenter
          */
         fpresenter.checkPermission();
-        fpresenter.setIcon();
+        fpresenter.getIcons();
+//        Log.e("icon numbers", ""+iconNums);
+
+        fpresenter.setIcon(iconNums);
         fpresenter.setLocationMode();
 
         fragmentManager = getFragmentManager();
@@ -101,4 +107,6 @@ public class HomeFragmentWithMap extends BaseFragment<HomeFragmentWithMapPresent
     }
 
 
+    public void getIcons(Object[] objects) {
+    }
 }

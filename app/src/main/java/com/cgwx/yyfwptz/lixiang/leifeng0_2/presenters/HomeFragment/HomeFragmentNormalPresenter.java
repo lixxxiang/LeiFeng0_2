@@ -45,7 +45,7 @@ public class HomeFragmentNormalPresenter extends BasePresenter<HomeFragmentNorma
     public void getURLRequest(String request) {
         model.geturl(request, new OnSendStringListener() {
             @Override
-            public void sendurl(String string) {
+            public void sendString(String string) {
                 getView().getURL(string);
             }
         });

@@ -22,7 +22,7 @@ public class DetectFragmentNormalPresenter extends BasePresenter<DetectFragmentN
     public void getURLRequest(String detectFragmentNormal) {
         model.geturl(detectFragmentNormal, new OnSendStringListener() {
             @Override
-            public void sendurl(String string) {
+            public void sendString(String string) {
                 getView().getURL(string);
             }
         });

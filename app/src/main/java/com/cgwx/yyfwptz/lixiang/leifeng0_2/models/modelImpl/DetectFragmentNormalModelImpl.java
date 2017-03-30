@@ -16,7 +16,7 @@ public class DetectFragmentNormalModelImpl implements DetectFragmentNormalModelI
     @Override
     public void geturl(String request, OnSendStringListener listener) {
         if(request.equals(Constants.detectFragmentNormal)){
-            listener.sendurl(Constants.detectFragmentNormalURL);
+            listener.sendString(Constants.detectFragmentNormalURL);
         }
     }
 }

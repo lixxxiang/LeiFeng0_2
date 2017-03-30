@@ -15,7 +15,7 @@ public class HomeFragmentNormalModelImpl implements HomeFragmentNormalModelInter
     @Override
     public void geturl(String request, OnSendStringListener listener) {
         if(request.equals(Constants.homeFragmentNormal)){
-            listener.sendurl(Constants.homeFragmentNormalURL);
+            listener.sendString(Constants.homeFragmentNormalURL);
         }
     }
 }
