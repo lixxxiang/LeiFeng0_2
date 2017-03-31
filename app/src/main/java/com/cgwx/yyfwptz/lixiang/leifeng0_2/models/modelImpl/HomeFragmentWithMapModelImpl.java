@@ -31,20 +31,20 @@ public class HomeFragmentWithMapModelImpl implements HomeFragmentWithMapModelInt
 
 
     public void insert() {
-        icon1.setLangitude(44.000000);
-        icon1.setLatitude(125.410000);
+        icon1.setLatitude(44.000000);
+        icon1.setLangitude(125.410000);
 
-        icon2.setLangitude(44.030000);
-        icon2.setLatitude(125.440000);
+        icon2.setLatitude(44.030000);
+        icon2.setLangitude(125.440000);
 
-        icon3.setLangitude(44.060000);
-        icon3.setLatitude(125.470000);
+        icon3.setLatitude(44.060000);
+        icon3.setLangitude(125.470000);
 
-        icon4.setLangitude(44.090000);
-        icon4.setLatitude(125.500000);
+        icon4.setLatitude(44.090000);
+        icon4.setLangitude(125.500000);
 
-        icon5.setLangitude(44.120000);
-        icon5.setLatitude(125.530000);
+        icon5.setLatitude(44.120000);
+        icon5.setLangitude(125.530000);
     }
 
     Icon icons[] = {icon1, icon2, icon3, icon4, icon5};

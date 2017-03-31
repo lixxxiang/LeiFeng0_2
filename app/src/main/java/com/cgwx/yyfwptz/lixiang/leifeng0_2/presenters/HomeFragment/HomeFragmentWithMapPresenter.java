@@ -128,7 +128,7 @@ public class HomeFragmentWithMapPresenter extends BasePresenter<HomeFragmentWith
     }
 
     public void initOverlay(double latitude, double langitude) {
-        LatLng latLng = new LatLng(langitude, latitude);
+        LatLng latLng = new LatLng(latitude, langitude);
         MarkerOptions markerOptions = new MarkerOptions()
                 .position(latLng)
                 .icon(bitmapDescriptor)
