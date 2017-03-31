@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity<MainActivityPresenter, MainActivi
             @Override
             public void onClick(View v) {
 //                presenter.performOnClick();//test
-                Intent intent = new Intent(MainActivity.this, LocationDemo.class);
+                Intent intent = new Intent(MainActivity.this, getLocationDemo.class);
                 MainActivity.this.startActivity(intent);
             }
         });

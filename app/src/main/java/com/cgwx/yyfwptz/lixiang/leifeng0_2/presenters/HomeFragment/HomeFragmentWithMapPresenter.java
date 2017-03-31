@@ -27,16 +27,15 @@ import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.R;
-import com.cgwx.yyfwptz.lixiang.leifeng0_2.models.modelImpl.HomeFragmentNormalModelImpl;
+import com.cgwx.yyfwptz.lixiang.leifeng0_2.entities.Icon;
+import com.cgwx.yyfwptz.lixiang.leifeng0_2.entities.Location;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.models.modelImpl.HomeFragmentWithMapModelImpl;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.models.modelInterface.OnSendArrayListener;
-import com.cgwx.yyfwptz.lixiang.leifeng0_2.models.modelInterface.OnSendStringListener;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.BasePresenter;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.utils.Constants;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.activity.MainActivity;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms.HomeFragmentNormal;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms.HomeFragmentWithMap;
-
 import static com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter.homeFragmentNormal;
 import static com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter.homeFragmentWithMapbak;
 import static com.cgwx.yyfwptz.lixiang.leifeng0_2.view.frgms.HomeFragmentWithMap.baiduMap;
@@ -58,12 +57,6 @@ public class HomeFragmentWithMapPresenter extends BasePresenter<HomeFragmentWith
     private MyLocationConfiguration.LocationMode mCurrentMode;
     private LocationClient mLocClient;
     private HomeFragmentWithMapPresenter.MyLocationListenner myListener = new MyLocationListenner();
-    boolean isFirstLoc = true;
-    private double longitude;
-    private double latitude;
-
-
-
 
 
     @Override
@@ -77,7 +70,7 @@ public class HomeFragmentWithMapPresenter extends BasePresenter<HomeFragmentWith
         FragmentTransaction fTransaction = fragmentManager.beginTransaction();
         if (homeFragmentWithMapbak != null)
             fTransaction.hide(homeFragmentWithMapbak);
-        if(homeFragmentNormal == null){
+        if (homeFragmentNormal == null) {
             homeFragmentNormal = new HomeFragmentNormal();
             fTransaction.replace(R.id.ly_content, homeFragmentNormal);
         } else
@@ -96,7 +89,10 @@ public class HomeFragmentWithMapPresenter extends BasePresenter<HomeFragmentWith
         }
     }
 
-    public void setIcon(Integer iconNums) {
+    public void setIcon(Icon[] icons) {
+        for (Icon i : icons) {
+            Log.e("---", String.valueOf(i.getLatitude()));
+        }
         bitmapDescriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
         baiduMap = mapView.getMap();
         baiduMap.setMyLocationEnabled(true);
@@ -140,9 +136,14 @@ public class HomeFragmentWithMapPresenter extends BasePresenter<HomeFragmentWith
         markerOptions.animateType(MarkerOptions.MarkerAnimateType.drop);
         markerA = (Marker) (baiduMap.addOverlay(markerOptions));
         baiduMap.setOnMarkerDragListener(new BaiduMap.OnMarkerDragListener() {
-            public void onMarkerDrag(Marker marker) {}
-            public void onMarkerDragEnd(Marker marker) {}
-            public void onMarkerDragStart(Marker marker) {}
+            public void onMarkerDrag(Marker marker) {
+            }
+
+            public void onMarkerDragEnd(Marker marker) {
+            }
+
+            public void onMarkerDragStart(Marker marker) {
+            }
         });
     }
 
@@ -180,10 +181,6 @@ public class HomeFragmentWithMapPresenter extends BasePresenter<HomeFragmentWith
         };
         requestLocButton.setOnClickListener(btnClickListener);
 
-
-
-//        initOverlay();
-
         mLocClient = new LocationClient(MainActivity.mainActivity);
         mLocClient.registerLocationListener(myListener);
         LocationClientOption option = new LocationClientOption();
@@ -192,22 +189,11 @@ public class HomeFragmentWithMapPresenter extends BasePresenter<HomeFragmentWith
         option.setScanSpan(1000);
         mLocClient.setLocOption(option);
         mLocClient.start();
-
-
     }
 
-//    public void getIconNumbers() {
-//        model.getIconNumbers(new OnSendStringListener() {
-//
-//            @Override
-//            public void sendString(String string) {
-//                getView().getIconNumbers(string);
-//            }
-//        });
-//    }
+    public void getIcons() { //start from here
 
-    public void getIcons() {
-        model.getIcon(new OnSendArrayListener() {
+        model.getIcons(new OnSendArrayListener() {
 
             @Override
             public void sendArray(Object[] objects) {
@@ -217,13 +203,26 @@ public class HomeFragmentWithMapPresenter extends BasePresenter<HomeFragmentWith
         });
     }
 
+//    public void getLocation() {
+////        myLocation = new Location();
+////        BDLocation location = null;
+////        latitude = location.getLatitude();
+////        longitude = location.getLongitude();
+////        Log.e("--------", String.valueOf(myLocation.getLatitude()) + myLocation.getLongitude());
+//        Log.e("--------out", String.valueOf(latitude) + longitude);
+//
+//    }
+
+
     public class MyLocationListenner implements BDLocationListener {
+        boolean isFirstLoc = true;
+
 
         @Override
         public void onReceiveLocation(BDLocation location) {
-            if (location == null || mapView == null) {
+            if (location == null || mapView == null)
                 return;
-            }
+
             MyLocationData locData = new MyLocationData.Builder()
                     .accuracy(location.getRadius())
                     .direction(100).latitude(location.getLatitude())

@@ -34,6 +34,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" >
         </activity>
+        <activity android:name=".view.activity.getLocationDemo"/>
     </application>
 
 </manifest>

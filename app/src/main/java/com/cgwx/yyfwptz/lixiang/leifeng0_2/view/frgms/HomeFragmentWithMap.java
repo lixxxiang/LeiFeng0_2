@@ -10,21 +10,32 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.R;
+import com.cgwx.yyfwptz.lixiang.leifeng0_2.entities.Icon;
+import com.cgwx.yyfwptz.lixiang.leifeng0_2.entities.Location;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.HomeFragment.HomeFragmentWithMapPresenter;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.BaseViewInterface;
+import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.activity.MainActivity;
 
 
 /**
  * Created by Jay on 2015/8/28 0028.
  */
 
-public class HomeFragmentWithMap extends BaseFragment<HomeFragmentWithMapPresenter, HomeFragmentWithMap> implements BaseViewInterface{
+public class HomeFragmentWithMap extends BaseFragment<HomeFragmentWithMapPresenter, HomeFragmentWithMap> implements BaseViewInterface {
 
     private View view;
     public static MapView mapView;
@@ -34,10 +45,11 @@ public class HomeFragmentWithMap extends BaseFragment<HomeFragmentWithMapPresent
     private LocationClient mLocClient;
     public static Button requestLocButton;
     public static BitmapDescriptor bitmapDescriptor;
-    private int iconNums;
+    private Icon[] icons;
 
 
-    public HomeFragmentWithMap() {}
+    public HomeFragmentWithMap() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,12 +64,17 @@ public class HomeFragmentWithMap extends BaseFragment<HomeFragmentWithMapPresent
          * to presenter
          */
         fpresenter.checkPermission();
-        fpresenter.getIcons();
+        /**
+         * 传参 定位点坐标
+         */
+//        fpresenter.getLocation();
+
 //        Log.e("icon numbers", ""+iconNums);
 
-        fpresenter.setIcon(iconNums);
-        fpresenter.setLocationMode();
 
+        fpresenter.setLocationMode();
+        fpresenter.getIcons();
+        fpresenter.setIcon(icons);
         fragmentManager = getFragmentManager();
         changeView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,5 +125,7 @@ public class HomeFragmentWithMap extends BaseFragment<HomeFragmentWithMapPresent
 
 
     public void getIcons(Object[] objects) {
+        icons = (Icon[]) objects;
     }
+
 }

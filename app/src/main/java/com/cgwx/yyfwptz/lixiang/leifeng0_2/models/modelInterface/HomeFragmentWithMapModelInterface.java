@@ -1,5 +1,6 @@
 package com.cgwx.yyfwptz.lixiang.leifeng0_2.models.modelInterface;
 
+import com.cgwx.yyfwptz.lixiang.leifeng0_2.entities.Location;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.models.BaseModelInterface;
 
 /**
