@@ -67,11 +67,6 @@ public class HomeFragmentWithMap extends BaseFragment<HomeFragmentWithMapPresent
         /**
          * 传参 定位点坐标
          */
-//        fpresenter.getLocation();
-
-//        Log.e("icon numbers", ""+iconNums);
-
-
         fpresenter.setLocationMode();
         fpresenter.getIcons();
         fpresenter.setIcon(icons);

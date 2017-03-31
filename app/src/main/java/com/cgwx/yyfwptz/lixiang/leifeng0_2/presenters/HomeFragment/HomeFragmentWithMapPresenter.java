@@ -92,42 +92,43 @@ public class HomeFragmentWithMapPresenter extends BasePresenter<HomeFragmentWith
     public void setIcon(Icon[] icons) {
         for (Icon i : icons) {
             Log.e("---", String.valueOf(i.getLatitude()));
-        }
-        bitmapDescriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
-        baiduMap = mapView.getMap();
-        baiduMap.setMyLocationEnabled(true);
-        /**
-         * 缩放等级
-         */
-        mapStatusUpdate = MapStatusUpdateFactory.zoomTo(14.0f);
-        baiduMap.setMapStatus(mapStatusUpdate);
 
-        baiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
-            public boolean onMarkerClick(final Marker marker) {
-                hideButton = new Button(MainActivity.mainActivity.getApplicationContext());
-                InfoWindow.OnInfoWindowClickListener listener = null;
-                if (marker == markerA) {
-                    /**
-                     * 透明
-                     */
-                    hideButton.setBackgroundColor(0x000000);
-                    listener = new InfoWindow.OnInfoWindowClickListener() {
-                        public void onInfoWindowClick() {
+            bitmapDescriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
+            baiduMap = mapView.getMap();
+            baiduMap.setMyLocationEnabled(true);
+            /**
+             * 缩放等级
+             */
+            mapStatusUpdate = MapStatusUpdateFactory.zoomTo(14.0f);
+            baiduMap.setMapStatus(mapStatusUpdate);
+
+            baiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
+                public boolean onMarkerClick(final Marker marker) {
+                    hideButton = new Button(MainActivity.mainActivity.getApplicationContext());
+                    InfoWindow.OnInfoWindowClickListener listener = null;
+                    if (marker == markerA) {
+                        /**
+                         * 透明
+                         */
+                        hideButton.setBackgroundColor(0x000000);
+                        listener = new InfoWindow.OnInfoWindowClickListener() {
+                            public void onInfoWindowClick() {
 //                            Toast.makeText(MainActivity.mainActivity, "dd", Toast.LENGTH_SHORT).show();
-                        }
-                    };
-                    LatLng ll = marker.getPosition();
-                    infoWindow = new InfoWindow(BitmapDescriptorFactory.fromView(hideButton), ll, -47, listener);
-                    baiduMap.showInfoWindow(infoWindow);
+                            }
+                        };
+                        LatLng ll = marker.getPosition();
+                        infoWindow = new InfoWindow(BitmapDescriptorFactory.fromView(hideButton), ll, -47, listener);
+                        baiduMap.showInfoWindow(infoWindow);
+                    }
+                    return true;
                 }
-                return true;
-            }
-        });
-        initOverlay();
+            });
+            initOverlay(i.getLatitude(), i.getLangitude());
+        }
     }
 
-    public void initOverlay() {
-        LatLng latLng = new LatLng(43.977607, 125.389826);
+    public void initOverlay(double latitude, double langitude) {
+        LatLng latLng = new LatLng(langitude, latitude);
         MarkerOptions markerOptions = new MarkerOptions()
                 .position(latLng)
                 .icon(bitmapDescriptor)
