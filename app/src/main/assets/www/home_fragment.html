@@ -20,67 +20,64 @@
 <html ng-app="ionicApp">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>菜鸟教程(runoob.com)</title>
+    <meta name="viewport"
+          content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <link href="https://cdn.bootcss.com/ionic/1.3.2/css/ionic.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/ionic/1.3.2/js/ionic.bundle.min.js"></script>
 </head>
 <body>
 
 <ion-list>
-    <ion-item class="item-input">
-                <span class="item-input-wrapper" style="margin-right:16px">
-                        <i class="icon ion-ios-search placeholder-icon" ng-click="search()"></i>
-                        <input id="search" type="search" placeholder="搜索" ng-model="searchCont.key">
-                        <i class="icon ion-close-circled placeholder-icon" style="vertical-align: middle;"
-                           on-tap="clearSearch()" ng-if="searchCont.key.length"></i>
-                 </span>
-    </ion-item>
-    <ion-item class="" ng-repeat="item in itemArr2"></ion-item>
-
-    <div class="content has-header">
-
-        <div class="list card">
-
-            <div class="item item-avatar">
-                <img src="http://www.runoob.com/try/demo_source/mcfly.jpg">
-                <h2>Marty McFly</h2>
-                <p>November 05, 1955</p>
-            </div>
-
-            <div class="item item-body">
-                <img class="full-image" style="height:20%; width:100%" src="http://www.runoob.com/try/demo_source/delorean.jpg">
-                <p>
-                    balabalabala<br>
-                    balabalabala<br>
-                    balabalabala<br>
-                    balabalabala
-                </p>
-                <p>
-                    <a href="#" class="subdued">1 喜欢</a>
-                    <a href="#" class="subdued">5 评论</a>
-                </p>
-            </div>
-
-            <div class="item tabs tabs-secondary tabs-icon-left">
-                <a class="tab-item" href="#">
-                    <i class="icon ion-thumbsup"></i>
-                    喜欢
-                </a>
-                <a class="tab-item" href="#">
-                    <i class="icon ion-chatbox"></i>
-                    评论
-                </a>
-                <a class="tab-item" href="#">
-                    <i class="icon ion-share"></i>
-                    分享
-                </a>
-            </div>
-
-        </div>
-
+    <div class="list list-inset">
+        <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" placeholder="搜索">
+        </label>
     </div>
 
+
+    <a class="item item-icon-left item-avatar" href="#">
+        <img src="http://www.runoob.com/try/demo_source/mcfly.jpg">
+        <p class="item-note" style="color:blue;font-size:10px">位置信息位置信息位置信息</p>
+        <p style="color:red" class="item-icon-right">用户名
+            <img width="20" height="20" src="http://www.runoob.com/try/demo_source/venkman.jpg">
+        </p>
+        <p class="item-note" style="color:gray;font-size:8px">发布时间</p>
+    </a>
+
+    <div class="item item-body">
+        <img class="full-image" style="height:20%; width:100%"
+             src="http://www.runoob.com/try/demo_source/delorean.jpg">
+        <p>
+            balabalabala<br>
+            balabalabala<br>
+            balabalabala<br>
+            balabalabala
+        </p>
+        <p>
+            <a href="#" class="subdued">1 喜欢</a>
+            <a href="#" class="subdued">5 评论</a>
+        </p>
+    </div>
+
+    <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#">
+            <i class="icon ion-thumbsup"></i>
+            喜欢
+        </a>
+        <a class="tab-item" href="#">
+            <i class="icon ion-chatbox"></i>
+            评论
+        </a>
+        <a class="tab-item" href="#">
+            <i class="icon ion-share"></i>
+            分享
+        </a>
+    </div>
+
+    <!--</div>-->
+
+
     <div class="content has-header">
 
         <div class="list card">
@@ -92,7 +89,8 @@
             </div>
 
             <div class="item item-body">
-                <img class="full-image" style="height:20%; width:100%" src="http://www.runoob.com/try/demo_source/delorean.jpg">
+                <img class="full-image" style="height:20%; width:100%"
+                     src="http://www.runoob.com/try/demo_source/delorean.jpg">
                 <p>
                     balabalabala<br>
                     balabalabala<br>
