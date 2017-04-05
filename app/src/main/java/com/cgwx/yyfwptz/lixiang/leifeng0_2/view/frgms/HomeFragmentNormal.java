@@ -25,6 +25,9 @@ import org.apache.cordova.engine.SystemWebViewEngine;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 import static com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter.homeFragmentNormal;
 import static com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter.homeFragmentWithMap;
 import static com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter.homeFragmentWithMapbak;
@@ -34,8 +37,13 @@ import static com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresent
  */
 public class HomeFragmentNormal extends BaseFragment<HomeFragmentNormalPresenter, HomeFragmentNormal> implements CordovaInterface, BaseViewInterface {
 
+
+    @BindView(R.id.cordovaWebView)
+    SystemWebView systemWebView;
+    @BindView(R.id.changeView)
+    Button changeView;
+
     private CordovaWebView cordovaWebView;
-    private SystemWebView systemWebView;
     private ConfigXmlParser configXmlParser;
     private View view;
     protected CordovaPlugin activityResultCallback;
@@ -43,7 +51,7 @@ public class HomeFragmentNormal extends BaseFragment<HomeFragmentNormalPresenter
     private final ExecutorService threadPool = Executors.newCachedThreadPool();
     private String content;
     private String URL;
-    private Button changeView;
+
     private FragmentManager fragmentManager;
 
     public HomeFragmentNormal() {
@@ -57,19 +65,16 @@ public class HomeFragmentNormal extends BaseFragment<HomeFragmentNormalPresenter
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.home_fragment1,container,false);
-        systemWebView = (SystemWebView) view.findViewById(R.id.cordovaWebView);
-
+        ButterKnife.bind(this, view);
         /**
          * to presenter
          */
         fpresenter.getURLRequest(Constants.homeFragmentNormal);
-
         systemWebView.loadUrl(URL);
         cordovaWebView = new CordovaWebViewImpl(new SystemWebViewEngine(systemWebView));
         configXmlParser = new ConfigXmlParser();
         configXmlParser.parse(getActivity());
         cordovaWebView.init(this, configXmlParser.getPluginEntries(), configXmlParser.getPreferences());
-        changeView = (Button) view.findViewById(R.id.changeView);
         changeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

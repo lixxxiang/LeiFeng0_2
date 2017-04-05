@@ -26,13 +26,21 @@ import org.apache.cordova.engine.SystemWebViewEngine;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Jay on 2015/8/28 0028.
  */
 public class DetectFragmentNormal extends BaseFragment<DetectFragmentNormalPresenter, DetectFragmentNormal> implements CordovaInterface, BaseViewInterface {
 
+
+    @BindView(R.id.cordovaWebView)
+    SystemWebView systemWebView;
+    @BindView(R.id.changeView)
+    Button changeView;
+
     private CordovaWebView cordovaWebView;
-    private SystemWebView systemWebView;
     private ConfigXmlParser configXmlParser;
     private View view;
     protected CordovaPlugin activityResultCallback;
@@ -40,7 +48,6 @@ public class DetectFragmentNormal extends BaseFragment<DetectFragmentNormalPrese
     private final ExecutorService threadPool = Executors.newCachedThreadPool();
     private String content;
     private String URL;
-    private Button changeView;
     private HomeFragmentWithMapbak homeFragmentWithMapbak;
     private FragmentManager fragmentManager;
 
@@ -55,7 +62,7 @@ public class DetectFragmentNormal extends BaseFragment<DetectFragmentNormalPrese
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.home_fragment1,container,false);
-        systemWebView = (SystemWebView) view.findViewById(R.id.cordovaWebView);
+        ButterKnife.bind(this, view);
         fpresenter.getURLRequest(Constants.detectFragmentNormal);
         systemWebView.loadUrl(URL);
         cordovaWebView = new CordovaWebViewImpl(new SystemWebViewEngine(systemWebView));
@@ -63,7 +70,6 @@ public class DetectFragmentNormal extends BaseFragment<DetectFragmentNormalPrese
         configXmlParser.parse(getActivity());
         cordovaWebView.init(this, configXmlParser.getPluginEntries(), configXmlParser.getPreferences());
         fragmentManager = getFragmentManager();
-        changeView = (Button) view.findViewById(R.id.changeView);
         changeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

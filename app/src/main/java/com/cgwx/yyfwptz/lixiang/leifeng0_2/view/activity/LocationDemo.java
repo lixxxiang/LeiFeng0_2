@@ -22,11 +22,15 @@ import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by yyfwptz on 2017/3/29.
  */
 
 public class LocationDemo extends Activity {
+
 
     // 定位相关
     LocationClient mLocClient;
@@ -34,10 +38,12 @@ public class LocationDemo extends Activity {
     private MyLocationConfiguration.LocationMode mCurrentMode;
     BitmapDescriptor mCurrentMarker;
 
+    @BindView(R.id.bmapView)
     MapView mapView;
     BaiduMap baiduMap;
 
     // UI相关
+    @BindView(R.id.button1)
     Button requestLocButton;
     boolean isFirstLoc = true; // 是否首次定位
 
@@ -57,7 +63,7 @@ public class LocationDemo extends Activity {
                 requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
             }
         }
-        requestLocButton = (Button) findViewById(R.id.button1);
+        ButterKnife.bind(this);
         mCurrentMode = MyLocationConfiguration.LocationMode.NORMAL;
         requestLocButton.setText("普通");
         View.OnClickListener btnClickListener = new View.OnClickListener() {
@@ -93,7 +99,6 @@ public class LocationDemo extends Activity {
 
 
         // 地图初始化
-        mapView = (MapView) findViewById(R.id.bmapView);
         baiduMap = mapView.getMap();
         // 开启定位图层
         baiduMap.setMyLocationEnabled(true);

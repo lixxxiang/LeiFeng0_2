@@ -30,6 +30,9 @@ import com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.HomeFragment.HomeFragmentW
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.BaseViewInterface;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.activity.MainActivity;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 /**
  * Created by Jay on 2015/8/28 0028.
@@ -37,10 +40,13 @@ import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.activity.MainActivity;
 
 public class HomeFragmentWithMap extends BaseFragment<HomeFragmentWithMapPresenter, HomeFragmentWithMap> implements BaseViewInterface {
 
+
+    @BindView(R.id.changeView)
+    Button changeView;
+
     private View view;
     public static MapView mapView;
     public static BaiduMap baiduMap;
-    private Button changeView;
     private FragmentManager fragmentManager;
     private LocationClient mLocClient;
     public static Button requestLocButton;
@@ -57,9 +63,10 @@ public class HomeFragmentWithMap extends BaseFragment<HomeFragmentWithMapPresent
 
         SDKInitializer.initialize(getActivity().getApplication());
         view = inflater.inflate(R.layout.home_fragment_with_map, container, false);
+        ButterKnife.bind(this, view);
         mapView = (MapView) view.findViewById(R.id.bmapView);
         requestLocButton = (Button) view.findViewById(R.id.button1);
-        changeView = (Button) view.findViewById(R.id.changeView);
+
         /**
          * to presenter
          */

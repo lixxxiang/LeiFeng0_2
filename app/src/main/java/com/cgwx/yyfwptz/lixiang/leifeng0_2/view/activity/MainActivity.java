@@ -1,10 +1,9 @@
 package com.cgwx.yyfwptz.lixiang.leifeng0_2.view.activity;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,30 +11,30 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.R;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.BaseViewInterface;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import static com.cgwx.yyfwptz.lixiang.leifeng0_2.utils.Distance.getDistance;
 
 
 public class MainActivity extends BaseActivity<MainActivityPresenter, MainActivity> implements RadioGroup.OnCheckedChangeListener, BaseViewInterface{
-
-
     public static MainActivity mainActivity;
-    private RadioGroup radioGroup;
-    private RadioButton radioButton;
-    private ImageView record;
+    @BindView(R.id.rg_tab_bar)
+    RadioGroup radioGroup;
+    @BindView(R.id.rb_home)
+    RadioButton radioButton;
+    @BindView(R.id.record)
+    ImageView record;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ButterKnife.bind(this);
         mainActivity = this;
-        radioGroup = (RadioGroup) findViewById(R.id.rg_tab_bar);
         radioGroup.setOnCheckedChangeListener(this);
-        radioButton = (RadioButton) findViewById(R.id.rb_home);
         radioButton.setChecked(true);
-        record = (ImageView) findViewById(R.id.record);
         record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
