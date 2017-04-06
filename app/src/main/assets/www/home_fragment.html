@@ -17,7 +17,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html ng-app="ionicApp">
+<html ng-app="ionicApp" xmlns:display="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport"
@@ -26,103 +26,157 @@
     <script src="https://cdn.bootcss.com/ionic/1.3.2/js/ionic.bundle.min.js"></script>
 </head>
 <body>
+<!--<div class="dark-bg stable">-->
+
 
 <ion-list>
+    <!--搜索框-->
     <div class="list list-inset">
         <label class="item item-input">
             <i class="icon ion-search placeholder-icon"></i>
             <input type="text" placeholder="搜索">
         </label>
     </div>
+    <div class="list card">
+        <!--头像 用户名 会员标志 位置信息 发布时间-->
+        <a class="item item-icon-left item-avatar" href="#"
+           style="min-height:60px;padding-bottom:0px">
+            <img src="http://www.runoob.com/try/demo_source/mcfly.jpg">
+            <p class="item-note" style="color:blue;font-size:10px">位置信息位置信息位置信息</p>
+            <p style="color:red" class="item-icon-right">用户名
+                <img width="20" height="20" src="http://www.runoob.com/try/demo_source/venkman.jpg">
+            </p>
+            <p class="item-note" style="color:gray;font-size:8px">发布时间</p>
+        </a>
 
 
-    <a class="item item-icon-left item-avatar" href="#">
-        <img src="http://www.runoob.com/try/demo_source/mcfly.jpg">
-        <p class="item-note" style="color:blue;font-size:10px">位置信息位置信息位置信息</p>
-        <p style="color:red" class="item-icon-right">用户名
+        <!--视频-->
+        <iframe class="ifra" frameborder="0" width=100% height="200" scrolling="no"
+                src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></iframe>
+        <!--视频信息-->
+        <p>
+            <!--找雷锋入口-->
             <img width="20" height="20" src="http://www.runoob.com/try/demo_source/venkman.jpg">
+            <!--视频简介-->
+            视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息
         </p>
-        <p class="item-note" style="color:gray;font-size:8px">发布时间</p>
-    </a>
 
-    <div class="item item-body">
-        <img class="full-image" style="height:20%; width:100%"
-             src="http://www.runoob.com/try/demo_source/delorean.jpg">
-        <p>
-            balabalabala<br>
-            balabalabala<br>
-            balabalabala<br>
-            balabalabala
-        </p>
-        <p>
-            <a href="#" class="subdued">1 喜欢</a>
-            <a href="#" class="subdued">5 评论</a>
-        </p>
+        <!--评论区-->
+        <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" href="#">
+                <i class="icon ion-share"></i>
+                5542
+            </a>
+            <a class="tab-item" href="#">
+                <i class="icon ion-chatbox"></i>
+                8234
+            </a>
+            <a class="tab-item" href="#">
+                <i class="icon ion-thumbsup"></i>
+                1222
+            </a>
+            <a class="tab-item" href="#">
+                <i class="icon ion-ionic"></i>
+                卫星影像
+            </a>
+        </div>
     </div>
 
-    <div class="item tabs tabs-secondary tabs-icon-left">
-        <a class="tab-item" href="#">
-            <i class="icon ion-thumbsup"></i>
-            喜欢
+    <div class="list card">
+
+        <!--头像 用户名 会员标志 位置信息 发布时间-->
+        <a class="item item-icon-left item-avatar" href="#"
+           style="min-height:60px;padding-bottom:0px">
+            <img src="http://www.runoob.com/try/demo_source/mcfly.jpg">
+            <p class="item-note" style="color:blue;font-size:10px">位置信息位置信息位置信息</p>
+            <p style="color:red" class="item-icon-right">用户名
+                <img width="20" height="20" src="http://www.runoob.com/try/demo_source/venkman.jpg">
+            </p>
+            <p class="item-note" style="color:gray;font-size:8px">发布时间</p>
         </a>
-        <a class="tab-item" href="#">
-            <i class="icon ion-chatbox"></i>
-            评论
-        </a>
-        <a class="tab-item" href="#">
-            <i class="icon ion-share"></i>
-            分享
-        </a>
+
+
+        <!--视频-->
+        <iframe class="ifra" frameborder="0" width=100% height="200" scrolling="no"
+                src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></iframe>
+        <!--视频信息-->
+        <p>
+            <!--找雷锋入口-->
+            <img width="20" height="20" src="http://www.runoob.com/try/demo_source/venkman.jpg">
+            <!--视频简介-->
+            视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息
+        </p>
+
+        <!--评论区-->
+        <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" href="#">
+                <i class="icon ion-share"></i>
+                5542
+            </a>
+            <a class="tab-item" href="#">
+                <i class="icon ion-chatbox"></i>
+                8234
+            </a>
+            <a class="tab-item" href="#">
+                <i class="icon ion-thumbsup"></i>
+                1222
+            </a>
+            <a class="tab-item" href="#">
+                <i class="icon ion-ionic"></i>
+                卫星影像
+            </a>
+        </div>
+
     </div>
 
-    <!--</div>-->
+    <div class="list card">
+
+        <!--头像 用户名 会员标志 位置信息 发布时间-->
+        <a class="item item-icon-left item-avatar" href="#"
+           style="min-height:60px;padding-bottom:0px">
+            <img src="http://www.runoob.com/try/demo_source/mcfly.jpg">
+            <p class="item-note" style="color:blue;font-size:10px">位置信息位置信息位置信息</p>
+            <p style="color:red" class="item-icon-right">用户名
+                <img width="20" height="20" src="http://www.runoob.com/try/demo_source/venkman.jpg">
+            </p>
+            <p class="item-note" style="color:gray;font-size:8px">发布时间</p>
+        </a>
 
 
-    <div class="content has-header">
+        <!--视频-->
+        <iframe class="ifra" frameborder="0" width=100% height="200" scrolling="no"
+                src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></iframe>
+        <!--视频信息-->
+        <p>
+            <!--找雷锋入口-->
+            <img width="20" height="20" src="http://www.runoob.com/try/demo_source/venkman.jpg">
+            <!--视频简介-->
+            视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息
+        </p>
 
-        <div class="list card">
-
-            <div class="item item-avatar">
-                <img src="http://www.runoob.com/try/demo_source/mcfly.jpg">
-                <h2>Marty McFly</h2>
-                <p>November 05, 1955</p>
-            </div>
-
-            <div class="item item-body">
-                <img class="full-image" style="height:20%; width:100%"
-                     src="http://www.runoob.com/try/demo_source/delorean.jpg">
-                <p>
-                    balabalabala<br>
-                    balabalabala<br>
-                    balabalabala<br>
-                    balabalabala
-                </p>
-                <p>
-                    <a href="#" class="subdued">1 喜欢</a>
-                    <a href="#" class="subdued">5 评论</a>
-                </p>
-            </div>
-
-            <div class="item tabs tabs-secondary tabs-icon-left">
-                <a class="tab-item" href="#">
-                    <i class="icon ion-thumbsup"></i>
-                    喜欢
-                </a>
-                <a class="tab-item" href="#">
-                    <i class="icon ion-chatbox"></i>
-                    评论
-                </a>
-                <a class="tab-item" href="#">
-                    <i class="icon ion-share"></i>
-                    分享
-                </a>
-            </div>
-
+        <!--评论区-->
+        <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" href="#">
+                <i class="icon ion-share"></i>
+                5542
+            </a>
+            <a class="tab-item" href="#">
+                <i class="icon ion-chatbox"></i>
+                8234
+            </a>
+            <a class="tab-item" href="#">
+                <i class="icon ion-thumbsup"></i>
+                1222
+            </a>
+            <a class="tab-item" href="#">
+                <i class="icon ion-ionic"></i>
+                卫星影像
+            </a>
         </div>
 
     </div>
 </ion-list>
-
+<!--</div>-->
 </body>
 </html>
 
