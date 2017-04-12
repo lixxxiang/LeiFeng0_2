@@ -1,6 +1,7 @@
 package com.cgwx.yyfwptz.lixiang.leifeng0_2.view.activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import com.cgwx.yyfwptz.lixiang.leifeng0_2.presenters.mainActivitypresenter.MainActivityPresenter;
@@ -41,7 +42,9 @@ public class MainActivity extends BaseActivity<MainActivityPresenter, MainActivi
                 Log.e("getDidddd", String.valueOf(getDistance(44,125.41,44.03,125.44)));
 //                presenter.performOnClick();//test
 //                Intent intent = new Intent(MainActivity.this, getLocationDemo.class);
-//                MainActivity.this.startActivity(intent);
+//                MainActivity.this.startActivity(intent);】
+                Intent intent = new Intent(MainActivity.this, RecordActivity.class);
+                startActivity(intent);
             }
         });
 

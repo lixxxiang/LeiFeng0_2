@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.cgwx.yyfwptz.lixiang.leifeng0_2"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -30,9 +30,6 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
     compile files('libs/android-support-v4.jar')
     compile files('libs/baidumapapi_base_v4_2_1.jar')
     compile files('libs/baidumapapi_cloud_v4_2_1.jar')
@@ -42,8 +39,11 @@ dependencies {
     compile files('libs/baidumapapi_util_v4_2_1.jar')
     compile files('libs/cordova-6.2.0-dev.jar')
     compile files('libs/locSDK_6.13.jar')
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.jakewharton:butterknife:8.5.1'
-    apt 'com.jakewharton:butterknife-compiler:8.2.1'
     compile 'com.zhy:okhttputils:2.6.2'
+    testCompile 'junit:junit:4.12'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
 }

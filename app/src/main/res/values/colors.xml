@@ -19,4 +19,7 @@
     <color name="text_topbar">#694E42</color>
     <color name="div_white">#E5E5E5</color>
     <color name="black_overlay">#66000000</color>
+    <color name="video_gray">#aadddddd</color>
+    <color name="blue">#3394EC</color>
+
 </resources>

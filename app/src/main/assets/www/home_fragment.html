@@ -20,46 +20,48 @@
             <input type="text" placeholder="搜索">
         </label>
     </div>
+
+
+
+
     <div class="list card">
         <!--头像 用户名 会员标志 位置信息 发布时间-->
-        <a class="item item-icon-left item-avatar" href="#" style="min-height:60px;padding-bottom:0px">
-            <img src="?" id="avatar">
-            <p class="item-note" style="color:blue;font-size:10px">位置信息位置信息位置信息</p>
-            <p style="color:red" class="item-icon-right" id="username">
+        <a class="item item-icon-left item-avatar" href="#" style="min-height:40px;padding-bottom:0px">
+            <img src="?" id="avatar" style="padding-top:0px;padding-bottom:0px">
+            <p class="item-note" style="color:blue;font-size:10px" id="location_info"></p>
+            <p style="color:red;padding-top:0px" class="item-icon-right">
+                <span id="username"></span>
                 <img width="20" height="20" src="?" id="member_icon">
             </p>
-            <p class="item-note" style="color:gray;font-size:8px">发布时间</p>
+            <p class="item-note" style="color:gray;font-size:8px" id="release_time"></p>
         </a>
 
 
         <!--视频-->
         <iframe class="ifra" frameborder="0" width=100% height="200" scrolling="no"
-                src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></iframe>
-        <!--视频信息-->
+                src="" id="video_url"></iframe>
         <p>
-            <!--找雷锋入口-->
-            <img width="20" height="20" src="http://www.runoob.com/try/demo_source/venkman.jpg">
-            <!--视频简介-->
-            视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息视频信息
+            <img width="20" height="20" src="?" id="find_icon">
+        <span id="video_info"></span>
         </p>
 
         <!--评论区-->
         <div class="item tabs tabs-secondary tabs-icon-left">
             <a class="tab-item" href="#">
                 <i class="icon ion-share"></i>
-                5542
+                <span id="repost_num"></span>
             </a>
             <a class="tab-item" href="#">
                 <i class="icon ion-chatbox"></i>
-                8234
+                <span id="commit_num"></span>
             </a>
             <a class="tab-item" href="#">
                 <i class="icon ion-thumbsup"></i>
-                1222
+                <span id="like_num"></span>
             </a>
             <a class="tab-item" href="#">
                 <i class="icon ion-ionic"></i>
-                卫星影像
+                <span id="satellite"></span>
             </a>
         </div>
     </div>
