@@ -12,7 +12,7 @@ import java.io.File;
 
 public class LFApplication extends Application{
 
-    public static String VIDEO_PATH =  "/sdcard/WeiXinRecordedDemo/";
+    public static String VIDEO_PATH =  "/sdcard/LeiFengRecordedDemo/";
 
     @Override
     public void onCreate() {
@@ -20,14 +20,8 @@ public class LFApplication extends Application{
         VIDEO_PATH += String.valueOf(System.currentTimeMillis());
         File file = new File(VIDEO_PATH);
         if(!file.exists()) file.mkdirs();
-
-        //设置视频缓存路径
         VCamera.setVideoCachePath(VIDEO_PATH);
-
-        // 开启log输出,ffmpeg输出到logcat
         VCamera.setDebugMode(true);
-
-        // 初始化拍摄SDK，必须
         VCamera.initialize(this);
     }
 }

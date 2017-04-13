@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".LFApplication"
         android:allowBackup="true"
@@ -29,16 +30,24 @@
             android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".view.activity.LocationDemo"
             android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity android:name=".view.activity.getLocationDemo" />
-        <activity android:name="com.example.zhaoshuang.weixinrecordeddemo.RecordActivity"/>
-        <activity android:name="com.example.zhaoshuang.weixinrecordeddemo.VideoPlayActivity"/>
+        <activity android:name="com.example.zhaoshuang.weixinrecordeddemo.Record2Activity" />
+        <activity android:name="com.example.zhaoshuang.weixinrecordeddemo.VideoPlayActivity" />
+        <activity android:name=".view.activity.tempChooseRecordActivity"
+            android:theme="@style/AppNoBarTheme" />
+        <activity android:name=".view.activity.VideoPlayerActivity" />
+        <activity android:name="mabeijianxi.camera.MediaRecorderActivity"/>
+        <activity android:name=".view.activity.SendSmallVideoActivity"
+            android:theme="@style/AppNoBarTheme" />
+
     </application>
 
 </manifest>
