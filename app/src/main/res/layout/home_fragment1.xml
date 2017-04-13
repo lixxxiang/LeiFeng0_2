@@ -18,7 +18,7 @@
     android:layout_centerInParent="true"
     android:gravity="center"
     android:text="首页"
-    android:textColor="@color/text_topbar"
+    android:textColor="@color/bg_black"
     android:textSize="18sp" />
 
 
@@ -30,12 +30,14 @@
 
         <Button
             android:id="@+id/changeView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
             android:layout_alignParentRight="true"
-            android:text="切换视图" />
+            android:background="@drawable/ic_map_black_48dp"
+             />
 
     </RelativeLayout>
 

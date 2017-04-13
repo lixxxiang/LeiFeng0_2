@@ -15,7 +15,7 @@
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="首页"
+            android:text="雷锋"
             android:textColor="@color/bg_black"
             android:textSize="18sp" />
 

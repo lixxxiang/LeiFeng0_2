@@ -52,7 +52,7 @@ public class DetectFragmentWithMap extends Fragment implements CordovaInterface 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.home_fragment1,container,false);
+        view = inflater.inflate(R.layout.detect_fragment_with_map,container,false);
         systemWebView = (SystemWebView) view.findViewById(R.id.cordovaWebView);
         URL = "file:///android_asset/www/home_fragment1.html";
         systemWebView.loadUrl(URL);

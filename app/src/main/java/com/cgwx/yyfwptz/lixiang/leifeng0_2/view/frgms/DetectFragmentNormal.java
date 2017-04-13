@@ -61,7 +61,7 @@ public class DetectFragmentNormal extends BaseFragment<DetectFragmentNormalPrese
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.home_fragment1,container,false);
+        view = inflater.inflate(R.layout.detect_fragment1,container,false);
         ButterKnife.bind(this, view);
         fpresenter.getURLRequest(Constants.detectFragmentNormal);
         systemWebView.loadUrl(URL);

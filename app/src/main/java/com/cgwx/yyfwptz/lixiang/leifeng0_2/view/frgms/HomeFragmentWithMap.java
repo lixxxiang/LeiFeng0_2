@@ -106,7 +106,7 @@ public class HomeFragmentWithMap extends BaseFragment<HomeFragmentWithMapPresent
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mLocClient.stop();
+        //mLocClient.stop();
         baiduMap.setMyLocationEnabled(false);
         mapView.onDestroy();
         mapView = null;
