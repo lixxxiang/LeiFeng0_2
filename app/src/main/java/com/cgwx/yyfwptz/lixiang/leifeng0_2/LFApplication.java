@@ -2,7 +2,7 @@ package com.cgwx.yyfwptz.lixiang.leifeng0_2;
 
 import android.app.Application;
 
-import com.cgwx.yyfwptz.lixiang.leifeng0_2.view.activity.yixia.camera.VCamera;
+import com.yixia.camera.VCamera;
 
 import java.io.File;
 
